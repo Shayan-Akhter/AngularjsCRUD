@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Angular CRUD</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="angular.min.js"></script>
+    <script src="main.js"></script>
+
+</head>
+
+<body ng-app="myModule">
+
+    <section ng-controller="myController" class="container">
+        <br/>
+        <h3>Add User</h3>
+        <table class="table table-bordered">
+            <tr>
+                <th><input type="text" class="form-control" ng-model="data.name" placeholder="Name"></th>
+                <th><input type="text" class="form-control" ng-model="data.age" placeholder="Age"></th>
+                <th><input type="text" class="form-control" ng-model="data.class" placeholder="Class"></th>
+                <th><input type="button" class="btn btn-success" ng-click="addUser()" value="Add User"></th>
+            </tr>
+        </table>
+        <div style="display: none;" ng-style="x">
+            <h3>Edit User</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <input type="hidden" ng-model="edit.index">
+                    <th><input type="text" class="form-control" ng-model="edit.name" placeholder="Name"></th>
+                    <th><input type="text" class="form-control" ng-model="edit.age" placeholder="Age"></th>
+                    <th><input type="text" class="form-control" ng-model="edit.class" placeholder="Class"></th>
+                    <th><input class="btn btn-success" type="button" ng-click="updateUser()" value="Edit User"></th>
+                </tr>
+            </table>
+        </div>
+
+        <table class="table table-bordered">
+            <thead style="background-color: silver;">
+                <td>Name</td>
+                <td>Age</td>
+                <td>Class</td>
+                <td colspan="2"><center>Actions</td>
+            </thead>
+            <tr ng-repeat="data in record">
+                <td>{{ data.name }}</td>
+                <td>{{ data.age }}</td>
+                <td>{{ data.class }}</td>
+                <td><center><input class="btn btn-info" type="button" ng-click="editUser()" value="Edit"></td>
+                <td><center><input class="btn btn-danger" type="button" ng-click="deleteUser()" value="Delete"></center>
+                </center>
+                </center></td>
+            </tr>
+        </table>
+    </section>
+
+    <div ng-app="myModule" ng-controller="secondController"> <button ng-click="toggle()">test </button>
+        <div ng-show="state"> hello test </div>
+    </div>
+
+</body>
+
+</html>
